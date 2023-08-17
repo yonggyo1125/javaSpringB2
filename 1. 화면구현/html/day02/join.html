@@ -10,46 +10,50 @@
             <dl>
                 <dt>가입구분</dt>
                 <dd>
-                    <input type="radio" name="user_type">일반 회원
-                    <input type="radio" name="user_type">사업자 회원
+                    <input type="radio" name="user_type" value="일반 회원">일반 회원
+                    <input type="radio" name="user_type" value="사업자 회원">사업자 회원
                 </dd>
             </dl>
             <dl>
                 <dt>아이디</dt>
                 <dd>
-                    <input type="text">
+                    <input type="text" name="userId" value="user01">
                 </dd>
             </dl>
             <dl>
                 <dt>비밀번호</dt>
                 <dd>
-                    <input type="password">
+                    <input type="password" name="userPw">
                 </dd>
             </dl>
             <dl>
                 <dt>비밀번호 확인</dt>
                 <dd>
-                    <input type="password">
+                    <input type="password" name="userPwRe">
                 </dd>
             </dl>
             <dl>
                 <dt>회원명</dt>
                 <dd>
-                    <input type="text">
+                    <input type="text" name="userNm">
                 </dd>
             </dl>
             <dl>
                 <dt>취미</dt>
                 <dd>
-                    <input type="checkbox">축구
-                    <input type="checkbox">농구
-                    <input type="checkbox">야구
-                    <input type="checkbox">독서
-                    <input type="checkbox">피아노
+                    <input type="checkbox" name="hobby" value="축구">축구
+                    <input type="checkbox" name="hobby" value="농구">농구
+                    <input type="checkbox" name="hobby" value="야구">야구
+                    <input type="checkbox" name="hobby" value="독서">독서
+                    <input type="checkbox" name="hobby" value="피아노">피아노
                 </dd>
             </dl>
-            <input type="submit">
-            <input type="reset">
+            <!--
+            <input type="submit" value="가입하기">
+            <input type="reset" value="다시입력">
+            -->
+            <button type="submit">가입하기</button>
+            <button type="reset">다시입력</button>
         </form>
     </body>
 </html>
