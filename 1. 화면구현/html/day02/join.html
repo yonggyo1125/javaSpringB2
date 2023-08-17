@@ -6,7 +6,14 @@
     </head>
     <body>
         <h1>회원가입</h1>
-        <form>
+        <form method="GET" action="join_ps.html"> 
+            <dl>
+                <dt>가입구분</dt>
+                <dd>
+                    <input type="radio" name="user_type">일반 회원
+                    <input type="radio" name="user_type">사업자 회원
+                </dd>
+            </dl>
             <dl>
                 <dt>아이디</dt>
                 <dd>
@@ -16,13 +23,13 @@
             <dl>
                 <dt>비밀번호</dt>
                 <dd>
-                    <input type="text">
+                    <input type="password">
                 </dd>
             </dl>
             <dl>
                 <dt>비밀번호 확인</dt>
                 <dd>
-                    <input type="text">
+                    <input type="password">
                 </dd>
             </dl>
             <dl>
@@ -31,6 +38,18 @@
                     <input type="text">
                 </dd>
             </dl>
+            <dl>
+                <dt>취미</dt>
+                <dd>
+                    <input type="checkbox">축구
+                    <input type="checkbox">농구
+                    <input type="checkbox">야구
+                    <input type="checkbox">독서
+                    <input type="checkbox">피아노
+                </dd>
+            </dl>
+            <input type="submit">
+            <input type="reset">
         </form>
     </body>
 </html>
