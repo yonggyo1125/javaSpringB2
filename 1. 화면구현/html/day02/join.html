@@ -7,6 +7,7 @@
     <body>
         <h1>회원가입</h1>
         <form method="POST" action="join_ps.html"> 
+            <input type="hidden" name="mode" value="join">
             <dl>
                 <dt>가입구분</dt>
                 <dd>
@@ -21,25 +22,25 @@
             <dl>
                 <dt>아이디</dt>
                 <dd>
-                    <input type="text" name="userId" value="user01">
+                    <input type="text" name="userId" value="user01" required>
                 </dd>
             </dl>
             <dl>
                 <dt>비밀번호</dt>
                 <dd>
-                    <input type="password" name="userPw">
+                    <input type="password" name="userPw" required placeholder="알파벳, 숫자, 특수문자를 입력..">
                 </dd>
             </dl>
             <dl>
                 <dt>비밀번호 확인</dt>
                 <dd>
-                    <input type="password" name="userPwRe">
+                    <input type="password" name="userPwRe" required>
                 </dd>
             </dl>
             <dl>
                 <dt>회원명</dt>
                 <dd>
-                    <input type="text" name="userNm">
+                    <input type="text" name="userNm" required>
                 </dd>
             </dl>
             <dl>
@@ -64,9 +65,17 @@
             <dl>
                 <dt>이메일</dt>
                 <dd>
-                    <input type="email" name="email">
+                    <!--<input type="email" name="email">-->
+                    <input type="text" name="email">
+                    @
+                    <select name="domain" size="2" multiple>
+                        <option value="naver.com">naver.com</option>
+                        <option value="kakao.com">kakao.com</option>
+                        <option value="gmail.com">gmail.com</option>
+                        <option value="" selected>직접 입력</option>
+                    </select>
                 </dd>
-            </dl>
+             </dl>
             <dl>
                 <dt>생년월일</dt>
                 <dd>
@@ -83,6 +92,12 @@
                 <dt>나이</dt>
                 <dd>
                     <input type="range" name="age" min="14" max="99">
+                </dd>
+            </dl>
+            <dl>
+                <dt>자기소개</dt>
+                <dd>
+                    <textarea name="intro" rows="10" cols="40"></textarea>
                 </dd>
             </dl>
             <!--
