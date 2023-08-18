@@ -9,8 +9,21 @@
             /*
             li:not(.menu) { background: orange; }
             */
+            /*
             li:first-child { background: blue; }
             li:last-child { background: red; }
+            */
+            /*
+            li:nth-child(1), 
+            li:nth-child(3),
+            li:nth-child(5),
+            li:nth-child(7),
+            li:nth-child(9) { background: blue; }
+            */
+            /* li:nth-child(2n+1) { background: blue; } */
+            li:nth-of-type(2n+1) { background: blue; }
+            li:first-of-type { background: red; }
+            li:last-of-type { background: black; }
         </style>
         <ul>
             <li>메뉴1</li>
@@ -23,6 +36,7 @@
             <li>메뉴8</li>
             <li>메뉴9</li>
             <li>메뉴10</li>
+            <li>메뉴11</li>
         </ul>
     </body>
 </html>
