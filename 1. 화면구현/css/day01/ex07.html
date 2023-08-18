@@ -26,8 +26,15 @@
             li:first-of-type { background: red; }
             li:last-of-type { background: black; }
             */
+            /*
             ul:before { background: red; content: ""; }
             ul:after { background: orange; content: "AFTER"; }
+            */
+            /*
+            .menu~li { background: orange; }
+            .menu+li { background: red; }
+            */
+            li+li { border-top: 1px dashed black; }
         </style>
         <ul>
             <li>메뉴1</li>
