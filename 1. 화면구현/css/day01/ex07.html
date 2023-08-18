@@ -21,9 +21,13 @@
             li:nth-child(9) { background: blue; }
             */
             /* li:nth-child(2n+1) { background: blue; } */
+            /*
             li:nth-of-type(2n+1) { background: blue; }
             li:first-of-type { background: red; }
             li:last-of-type { background: black; }
+            */
+            ul:before { background: red; content: ""; }
+            ul:after { background: orange; content: "AFTER"; }
         </style>
         <ul>
             <li>메뉴1</li>
