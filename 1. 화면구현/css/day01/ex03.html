@@ -7,14 +7,17 @@
     <body>
         <style>
             li { background: gray; }
-            .menus { background: red; }
+            .menus { background: red !important; }
+            #menu5 { background: blue; }
+            #menu4 { background: pink; }
+            .menuss { background: orange; }
         </style>
         <ul>
             <li>메뉴1</li>
             <li>메뉴2</li>
-            <li class="menus">메뉴3</li>
-            <li class="menus">메뉴4</li>
-            <li>메뉴5</li>
+            <li class="menus menuss">메뉴3</li>
+            <li class="menus menuss" id="menu4" style="background: green">메뉴4</li>
+            <li id="menu5">메뉴5</li>
         </ul>
     </body>
 </html>
