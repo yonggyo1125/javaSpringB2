@@ -7,7 +7,10 @@
     <body>
         <style>
             .box { width: 100px; height: 100px; background: orange; }
-            .box:hover { width: 200px; height: 200px; }
+            /*
+            .box { /* transition-property: width, height; */ /*transition-property: all; transition-duration: 1.5s; transition-timing-function: linear; transition-delay: 3s; }*/
+            .box { transition: all 1.5s linear; }
+            .box:hover { width: 200px; height: 200px; transform:rotate(270deg); }
         </style>
         <div class="box"></div>
     </body>
