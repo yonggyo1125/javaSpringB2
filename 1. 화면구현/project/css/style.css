@@ -24,8 +24,12 @@ nav a { width: 0; flex-grow: 1; text-align: center; line-height: 45px; color: #4
 /* 메뉴 영역 E */
 
 /* 메인 배너 영역 S */
+.swiper-pagination { bottom: 15px !important; }
 .swiper-pagination-bullet { width: 12px; height: 12px; background: #fff; opacity: 0.5; }
 .swiper-pagination-bullet-active { opacity: 1; }
-.swiper-button-next, swiper-button-prev { }
+.mySwiper .next, .mySwiper .prev { top:calc(50% - 1.19rem); font-size: 3.38rem; color: #fff; position: absolute; z-index: 10; cursor: pointer; }
+.mySwiper .next { right: 10px; }
+.mySwiper .prev { left: 10px; }
+
 
 /* 메인 배너 영역 E */
