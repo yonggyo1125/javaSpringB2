@@ -2,8 +2,8 @@ window.addEventListener("DOMContentLoaded", function() {
     const swiper = new Swiper(".mySwiper", {
         loop: true,
         navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
+            nextEl: ".mySwiper .next",
+            prevEl: ".mySwiper .prev",
         },
         pagination: {
           el: ".swiper-pagination",
