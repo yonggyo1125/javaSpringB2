@@ -66,7 +66,9 @@ nav a { width: 0; flex-grow: 1; text-align: center; line-height: 45px; color: #4
 .products .price_wrap { font-size: 1.154rem; margin-bottom: 5px; }
 .products .price { font-weight: 800; font-size: 1.385rem; letter-spacing: -1px; vertical-align: middle;}
 .products .product_name { word-break: break-all; font-size: 1.154rem; color: #3e3d3c; }
-.products .stars { letter-spacing: -1px; }
+.products .stars { letter-spacing: -1px; margin-top: 10px; }
 .products .stars img { width: 12px; }
 .products .no_of_reviews { color: #a7a7a7; margin-left: 6px; font-size: 0.923rem; }
+
+.more_btn { display: block;  width: 100%; background: #fff; border: 1px solid #b1b1b1; color: #212121; border-left: 0; border-right: 0; font-weight: bold; font-size: 1.154rem; cursor: pointer; }
 /* 상품 진열 영역 E */
