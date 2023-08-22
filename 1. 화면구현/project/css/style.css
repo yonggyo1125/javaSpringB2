@@ -26,6 +26,6 @@ nav a { width: 0; flex-grow: 1; text-align: center; line-height: 45px; color: #4
 /* 메인 배너 영역 S */
 .swiper-pagination-bullet { width: 12px; height: 12px; background: #fff; opacity: 0.5; }
 .swiper-pagination-bullet-active { opacity: 1; }
-.swiper-button-next, swiper-button-prev { background: #fff; opacity: 1; }
+.swiper-button-next, swiper-button-prev { }
 
 /* 메인 배너 영역 E */
