@@ -53,3 +53,7 @@ nav a { width: 0; flex-grow: 1; text-align: center; line-height: 45px; color: #4
 .banners a:nth-of-type(2), 
 .banners a:nth-of-type(3) { width: 50%; }
 /* 중간 배너 E */
+
+/* 상품 진열 영역 S */
+.products { display: flex; flex-wrap: wrap; }
+/* 상품 진열 영역 E */
