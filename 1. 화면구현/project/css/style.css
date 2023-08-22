@@ -22,3 +22,8 @@ nav { display: flex; height: 45px; }
 nav a { width: 0; flex-grow: 1; text-align: center; line-height: 45px; color: #494949; }
 
 /* 메뉴 영역 E */
+
+/* 메인 배너 영역 S */
+.swiper-pagination-bullet { }
+
+/* 메인 배너 영역 E */
