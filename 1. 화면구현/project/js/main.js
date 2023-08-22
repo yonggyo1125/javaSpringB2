@@ -21,6 +21,7 @@ window.addEventListener("DOMContentLoaded", function() {
             layerDim.classList.remove("dn");
             slideMenu.classList.remove("on");
             slideMenu.classList.add("on");
+            closeBtn.classList.remove("dn");
         });
     }
 
@@ -29,6 +30,8 @@ window.addEventListener("DOMContentLoaded", function() {
         layerDim.classList.remove("dn");
         layerDim.classList.add("dn");
         slideMenu.classList.remove("on");
+        closeBtn.classList.remove("dn");
+        closeBtn.classList.add("dn");
     });
 
 });
