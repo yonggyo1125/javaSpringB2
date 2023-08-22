@@ -18,13 +18,17 @@ window.addEventListener("DOMContentLoaded", function() {
 
     for (const el of moreMenus) {
         el.addEventListener("click", function() {
-            
+            layerDim.classList.remove("dn");
+            slideMenu.classList.remove("on");
+            slideMenu.classList.add("on");
         });
     }
 
     /* 닫기 버튼 클릭시 */
     closeBtn.addEventListener("click", function() {
-
+        layerDim.classList.remove("dn");
+        layerDim.classList.add("dn");
+        slideMenu.classList.remove("on");
     });
 
 });

@@ -14,6 +14,7 @@ header, nav, main, footer { background: #fff; }
 /* 공통 스타일 */
 .mtit { font-size: 1.539rem; font-weight: 700; color: #212121; text-align: center; padding: 20px; line-height: 1; }
 .montserrat { font-family: 'Montserrat', sans-serif; }
+.dn { display: none !important; }
 
 /* 헤더 영역 S */
 header { display: flex; justify-content: space-between; padding: 15px; border-bottom: 1px solid #e6e6e6; }
