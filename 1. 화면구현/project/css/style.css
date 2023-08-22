@@ -9,6 +9,9 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 dl,dt,dd { margin: 0; padding: 0; }
 a { text-decoration: none;}
 
+/* 공통 스타일 */
+.mtit { font-size: 1.539rem; font-weight: 700; color: #212121; text-align: center; padding: 20px; }
+
 /* 헤더 영역 S */
 header { display: flex; justify-content: space-between; padding: 15px; border-bottom: 1px solid #e6e6e6; }
 header .logo img { height: 34px; }
@@ -42,3 +45,11 @@ nav a { width: 0; flex-grow: 1; text-align: center; line-height: 45px; color: #4
 .sub_menus a:nth-of-type(2),
 .sub_menus a:nth-of-type(3) { border-top: 0; }
 /* 서브 메뉴 영역 E */
+
+/* 중간 배너 S */
+.banners { display: flex; flex-wrap: wrap; }
+.banners img { width: 100%; display: block; }
+.banners a:nth-of-type(1) { width: 100%; }
+.banners a:nth-of-type(2), 
+.banners a:nth-of-type(3) { width: 50%; }
+/* 중간 배너 E */
