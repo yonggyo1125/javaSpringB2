@@ -70,5 +70,8 @@ nav a { width: 0; flex-grow: 1; text-align: center; line-height: 45px; color: #4
 .products .stars img { width: 12px; }
 .products .no_of_reviews { color: #a7a7a7; margin-left: 6px; font-size: 0.923rem; }
 
-.more_btn { display: block;  width: 100%; background: #fff; border: 1px solid #b1b1b1; color: #212121; border-left: 0; border-right: 0; font-weight: bold; font-size: 1.154rem; cursor: pointer; }
+.more_btn { display: block;  width: 100%; background: #fff; border: 1px solid #b1b1b1; color: #212121; border-left: 0; border-right: 0; font-weight: bold; font-size: 1.154rem; cursor: pointer; height: 40px; }
 /* 상품 진열 영역 E */
+
+/* 하단 배너 */
+.bt_banner img { width: 100%; display: block; }
