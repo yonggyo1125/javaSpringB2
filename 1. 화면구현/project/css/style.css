@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap');
 * { box-sizing: border-box; font-family: 'Noto Sans KR', sans-serif; color: #000; outline: none; }
 
 html { font-size: 13px; /* 1rem - 13px */}
@@ -11,6 +12,7 @@ a { text-decoration: none;}
 
 /* 공통 스타일 */
 .mtit { font-size: 1.539rem; font-weight: 700; color: #212121; text-align: center; padding: 20px; line-height: 1; }
+.montserrat { font-family: 'Montserrat', sans-serif; }
 
 /* 헤더 영역 S */
 header { display: flex; justify-content: space-between; padding: 15px; border-bottom: 1px solid #e6e6e6; }
@@ -59,6 +61,6 @@ nav a { width: 0; flex-grow: 1; text-align: center; line-height: 45px; color: #4
 .products li { width: calc(100% / 2 - 8px); margin-bottom: 30px; }
 .products li:nth-of-type(2n+1) { margin-right: 8px; }
 .products li:nth-of-type(2n) { margin-left: 8px; }
-.products .product_image { width: 100%; display: block; }
+.products .product_image { width: 100%; display: block; margin-bottom: 10px; border-radius:10px; }
 
 /* 상품 진열 영역 E */
