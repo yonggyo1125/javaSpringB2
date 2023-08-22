@@ -10,7 +10,7 @@ dl,dt,dd { margin: 0; padding: 0; }
 a { text-decoration: none;}
 
 /* 공통 스타일 */
-.mtit { font-size: 1.539rem; font-weight: 700; color: #212121; text-align: center; padding: 20px; }
+.mtit { font-size: 1.539rem; font-weight: 700; color: #212121; text-align: center; padding: 20px; line-height: 1; }
 
 /* 헤더 영역 S */
 header { display: flex; justify-content: space-between; padding: 15px; border-bottom: 1px solid #e6e6e6; }
@@ -47,7 +47,7 @@ nav a { width: 0; flex-grow: 1; text-align: center; line-height: 45px; color: #4
 /* 서브 메뉴 영역 E */
 
 /* 중간 배너 S */
-.banners { display: flex; flex-wrap: wrap; }
+.banners { display: flex; flex-wrap: wrap; margin-bottom: 20px; }
 .banners img { width: 100%; display: block; }
 .banners a:nth-of-type(1) { width: 100%; }
 .banners a:nth-of-type(2), 
