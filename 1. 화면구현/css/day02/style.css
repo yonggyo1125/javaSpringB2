@@ -1,0 +1,7 @@
+* { box-sizing: border-box; }
+body { margin: 0; }
+
+header { display: flex; justify-content: space-between; }
+header #search { display: flex; width: 300px; border: 1px solid #d5d5d5; }
+header #search button { width: 60px; font-size: 0; height: 50px; background: #fff url("images/search.png") no-repeat center center; border: 0; }
+header #search input[type='text'] { flex-grow: 1; outline: none; border: 0; }
