@@ -8,5 +8,7 @@ public class Ex04 {
         Student s2 = new Student(1001, "학생2", "과목2");
         s2.showInfo();
         s1.showInfo();
+
+
     }
 }

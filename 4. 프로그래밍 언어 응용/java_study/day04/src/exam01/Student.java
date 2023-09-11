@@ -16,8 +16,17 @@ public class Student {
         subject = _subject;
     }
 
-    void showInfo() {
+    void showInfo() { // 인스턴스 메서드 -> 객체 생성 이후 호출 가능
 
         System.out.printf("id=%d, name=%s, subject=%s%n", id, name, subject);
+
+        staticMethod();// 인스턴스 자원에서 정적 자원 접근 O
+        
+    }
+
+    static void staticMethod() { // 처음 부터 호출 가능 -> 클래스명으로 접근
+        System.out.println("정적 메서드!");
+        //this.name = "이이름";
+        //showInfo();
     }
 }
