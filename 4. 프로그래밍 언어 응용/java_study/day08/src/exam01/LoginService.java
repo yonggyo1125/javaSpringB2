@@ -1,7 +1,7 @@
 package exam01;
 
-public class LoginService {
-    public void login(String userId, String userPw) throws UserIdException, UserPwException {
+public class LoginService  {
+    public void login(String userId, String userPw) /*throws UserIdException, UserPwException*/ {
         /**
          * userId - user01
          * userPw - 1234

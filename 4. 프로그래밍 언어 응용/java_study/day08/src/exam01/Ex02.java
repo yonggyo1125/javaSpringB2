@@ -4,11 +4,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 public class Ex02 {
-    public static void main(String[] args) {
-        try(FileInputStream fis = new FileInputStream("a.txt")) {
+    public static void main(String[] args) throws IOException {
+        FileInputStream fis = new FileInputStream("a.txt");
+        try(fis) {
 
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }
