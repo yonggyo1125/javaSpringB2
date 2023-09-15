@@ -1,5 +1,7 @@
 package exam03;
 
+import java.util.Objects;
+
 public class Book {
     private String title;
     private String author;
@@ -55,5 +57,10 @@ public class Book {
         }
 
         return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, author, publisher);
     }
 }
