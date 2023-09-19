@@ -9,5 +9,8 @@ public class Ex03 {
         MyAnno anno = (MyAnno)cls.getAnnotation(MyAnno.class);
         String[] values = anno.value();
         System.out.println(Arrays.toString(values));
+        int max = anno.max();
+        int min = anno.min();
+        System.out.printf("max=%d, min=%d%n", max, min);
     }
 }
