@@ -9,5 +9,5 @@ import java.lang.annotation.Target;
 @Target({TYPE, METHOD, FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface MyAnno {
-    String value();
+    String[] value();
 }
