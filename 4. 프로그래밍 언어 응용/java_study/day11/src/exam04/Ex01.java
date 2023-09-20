@@ -6,5 +6,7 @@ public class Ex01 {
         box.setItem(new Apple());
 
         Apple apple = box.getItem();
+
+        //Box<Melon> melonBox = new Box<>();
     }
 }
