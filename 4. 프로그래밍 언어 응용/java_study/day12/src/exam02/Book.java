@@ -2,7 +2,7 @@ package exam02;
 
 import java.util.Objects;
 
-public class Book {
+public class Book implements Comparable<Book> {
     private String title;
     private String author;
     private String publisher;
@@ -33,5 +33,10 @@ public class Book {
     @Override
     public int hashCode() {
         return Objects.hash(title, author, publisher);
+    }
+
+    @Override
+    public int compareTo(Book o) {
+        return title.hashCode() - o.title.hashCode(); // 오름차순
     }
 }
