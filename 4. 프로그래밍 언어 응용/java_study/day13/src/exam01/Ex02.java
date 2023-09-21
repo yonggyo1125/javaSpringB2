@@ -6,7 +6,7 @@ public class Ex02 {
     public static void main(String[] args) {
 
 
-        Map<String, String> members = new TreeMap<>((a, b) -> b.compareTo(a));
+        Map<String, String> members = new TreeMap<>((a,b) -> b.compareTo(a));
 
         members.put("user01", "사용자01");
         members.put("user02", "사용자02");
