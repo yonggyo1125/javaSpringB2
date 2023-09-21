@@ -1,12 +1,10 @@
 package exam01;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Ex02 {
     public static void main(String[] args) {
-        Map<String, String> members = new HashMap<>();
+        Map<String, String> members = new TreeMap<>(Comparator.reverseOrder());
         members.put("user01", "사용자01");
         members.put("user02", "사용자02");
         members.put("user03", "사용자03");
@@ -21,9 +19,8 @@ public class Ex02 {
         String name2 = members.getOrDefault("user06", "없는 사용자");
         System.out.println(name2);
 
-
-        Set<Map.Entry<String, String>> entries = members.entrySet();
-        for (Map.Entry<String, String> entry : entries) {
+        //Set<Map.Entry<String, String>> entries = members.entrySet();
+        for (Map.Entry<String, String> entry : members.entrySet()) {
             String key = entry.getKey();
             String value = entry.getValue();
 
