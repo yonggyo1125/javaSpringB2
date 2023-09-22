@@ -1,4 +1,4 @@
-package exam03;
+package exam01;
 
 @FunctionalInterface
 public interface Calculator {
