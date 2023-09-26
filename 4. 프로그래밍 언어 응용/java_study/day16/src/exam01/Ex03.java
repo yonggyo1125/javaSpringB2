@@ -2,7 +2,9 @@ package exam01;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Ex03 {
@@ -10,7 +12,11 @@ public class Ex03 {
 
     public static void main(String[] args) {
         IntStream.rangeClosed(1, 20).forEach(Ex03::add);
+        Map<Boolean, List<Student>> students1 = students.stream()
+                    .collect(Collectors.partitioningBy(s -> s.getGender() == 'F'));
 
+        List<Student> females = students1.get(true);
+        List<Student> males = students1.get(false);
     }
 
     private static void add(int i) {
