@@ -7,7 +7,7 @@ import java.io.IOException;
 public class Ex05 {
     public static void main(String[] args) {
         long sdate = System.currentTimeMillis();
-        try (FileInputStream fis = new FileInputStream("docs.zip");
+        try (FileInputStream fis = new FileInputStream("specs.zip");
             FileOutputStream fos = new FileOutputStream("copied1.zip")) {
 
             while(fis.available() > 0) {

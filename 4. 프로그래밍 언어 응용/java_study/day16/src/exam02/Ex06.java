@@ -7,7 +7,7 @@ public class Ex06 {
 
         long sdate = System.currentTimeMillis();
 
-        try (FileInputStream fis = new FileInputStream("docs.zip");
+        try (FileInputStream fis = new FileInputStream("specs.zip");
             BufferedInputStream bis = new BufferedInputStream(fis);
             FileOutputStream fos = new FileOutputStream("copied2.zip");
             BufferedOutputStream bos = new BufferedOutputStream(fos)) {
