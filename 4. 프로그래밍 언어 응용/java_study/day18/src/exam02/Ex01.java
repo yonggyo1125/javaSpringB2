@@ -10,6 +10,16 @@ public class Ex01 {
 
         cal.set(DATE, 20);
         printDate(cal);
+
+        cal.add(DATE, 100); // 100일 후
+        printDate(cal);
+
+        cal.add(DATE, -100); // 100일 전
+        printDate(cal);
+
+        cal.roll(DATE, 100);
+        printDate(cal);
+
     }
 
     public static void printDate(Calendar cal) {
