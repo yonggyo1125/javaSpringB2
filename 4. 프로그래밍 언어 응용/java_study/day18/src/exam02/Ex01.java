@@ -6,13 +6,17 @@ import static java.util.Calendar.*;
 public class Ex01 {
     public static void main(String[] args) {
         Calendar cal = Calendar.getInstance();
-        System.out.println(cal);
+        printDate(cal);
+
+        cal.set(DATE, 20);
+        printDate(cal);
     }
 
     public static void printDate(Calendar cal) {
-        String dateStr = String.format("%d-%d-%d", cal.get(YEAR), cal.get(MONTH), cal.get(DAY_OF_MONTH));
+        String dateStr = String.format("%d-%d-%d", cal.get(YEAR), cal.get(MONTH) + 1, cal.get(DAY_OF_MONTH));
+        String timeStr = String.format("%d:%d:%d", cal.get(HOUR_OF_DAY), cal.get(MINUTE), cal.get(SECOND));
 
-        System.out.println(dateStr);
+        System.out.println(dateStr + " " + timeStr);
 
     }
 }
