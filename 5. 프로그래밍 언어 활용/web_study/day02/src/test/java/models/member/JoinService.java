@@ -1,8 +1,14 @@
 package models.member;
 
+import commons.Validator;
+
 public class JoinService {
 
-    JoinValidator validator = new JoinValidator();
+    Validator validator;
+
+    public JoinService(Validator validator) {
+        this.validator = validator;
+    }
 
     public void join(Member member) {
         validator.check(member);

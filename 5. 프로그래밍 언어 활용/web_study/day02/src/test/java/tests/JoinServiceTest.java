@@ -2,6 +2,7 @@ package tests;
 
 import models.member.BadRequestException;
 import models.member.JoinService;
+import models.member.JoinValidator;
 import models.member.Member;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -26,7 +27,8 @@ public class JoinServiceTest {
 
     @BeforeEach
     void init() {
-        service = new JoinService();
+
+        service = new JoinService(new JoinValidator());
     }
 
 
