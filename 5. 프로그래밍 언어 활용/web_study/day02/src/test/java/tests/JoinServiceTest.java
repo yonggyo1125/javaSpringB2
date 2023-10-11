@@ -32,7 +32,7 @@ public class JoinServiceTest {
 
     @Test
     @DisplayName("회원가입 성공시 예외가 발생하지 않음")
-    void joinSucess() {
+    void joinSuccess() {
         assertDoesNotThrow(() -> {
             service.join(getMember());
         });
