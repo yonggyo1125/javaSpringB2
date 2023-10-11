@@ -41,33 +41,40 @@ public class JoinServiceTest {
     @Test
     @DisplayName("필수 항목(userId, userPw, confirmUserPw, userNm) 검증, 검증 실패시 BadRequestException 발생")
     void requiredFields() {
-        // userId가 null, 또는 " "(빈 값)일때
-        Member member = getMember();
-        member.setUserId(null);
-        requiredFieldEach(member, "아이디");
-        member.setUserId("   ");
-        requiredFieldEach(member, "아이디");
-
-        // userPw가 null, 또는 " "(빈 값)일때
-        member = getMember();
-        member.setUserPw(null);
-        requiredFieldEach(member, "비밀번호");
-        member.setUserPw("   ");
-        requiredFieldEach(member, "비밀번호");
-
-        // confirmUserPw null, 또는 " "(빈 값)일때
-        member = getMember();
-        member.setConfirmUserPw(null);
-        requiredFieldEach(member, "비밀번호를 확인");
-        member.setConfirmUserPw("   ");
-        requiredFieldEach(member, "비밀번호를 확인");
-
-        // userNm가 null, 또는 " "(빈 값)일때
-        member = getMember();
-        member.setUserNm(null);
-        requiredFieldEach(member, "회원명");
-        member.setUserNm("   ");
-        requiredFieldEach(member, "회원명");
+        assertAll(
+                () -> {
+                    // userId가 null, 또는 " "(빈 값)일때
+                    Member member = getMember();
+                    member.setUserId(null);
+                    requiredFieldEach(member, "아이디");
+                    member.setUserId("   ");
+                    requiredFieldEach(member, "아이디");
+                },
+                () -> {
+                    // userPw가 null, 또는 " "(빈 값)일때
+                    Member member = getMember();
+                    member.setUserPw(null);
+                    requiredFieldEach(member, "비밀번호");
+                    member.setUserPw("  ");
+                    requiredFieldEach(member, "비밀번호");
+                },
+                () -> {
+                    // confirmUserPw null, 또는 " "(빈 값)일때
+                    Member member = getMember();
+                    member.setConfirmUserPw(null);
+                    requiredFieldEach(member, "비밀번호를 확인");
+                    member.setConfirmUserPw("   ");
+                    requiredFieldEach(member, "비밀번호를 확인");
+                },
+                () -> {
+                    // userNm가 null, 또는 " "(빈 값)일때
+                    Member member = getMember();
+                    member.setUserNm(null);
+                    requiredFieldEach(member, "회원명");
+                    member.setUserNm("   ");
+                    requiredFieldEach(member, "회원명");
+                }
+        );
 
     }
 
