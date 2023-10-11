@@ -48,6 +48,26 @@ public class JoinServiceTest {
         member.setUserId("   ");
         requiredFieldEach(member, "아이디");
 
+        // userPw가 null, 또는 " "(빈 값)일때
+        member = getMember();
+        member.setUserPw(null);
+        requiredFieldEach(member, "비밀번호");
+        member.setUserPw("   ");
+        requiredFieldEach(member, "비밀번호");
+
+        // confirmUserPw null, 또는 " "(빈 값)일때
+        member = getMember();
+        member.setConfirmUserPw(null);
+        requiredFieldEach(member, "비밀번호를 확인");
+        member.setConfirmUserPw("   ");
+        requiredFieldEach(member, "비밀번호를 확인");
+
+        // userNm가 null, 또는 " "(빈 값)일때
+        member = getMember();
+        member.setUserNm(null);
+        requiredFieldEach(member, "회원명");
+        member.setUserNm("   ");
+        requiredFieldEach(member, "회원명");
 
     }
 
