@@ -42,12 +42,24 @@ public class JoinServiceTest {
     @DisplayName("필수 항목(userId, userPw, confirmUserPw, userNm) 검증, 검증 실패시 BadRequestException 발생")
     void requiredFields() {
         // userId가 null, 또는 " "(빈 값)일때
-        assertThrows(BadRequestException.class, () -> {
+        BadRequestException thrown = assertThrows(BadRequestException.class, () -> {
             Member member = getMember();
             member.setUserId(null);
             service.join(member);
 
             member.setUserId("   ");
+            service.join(member);
+        });
+        String message = thrown.getMessage();
+        assertEquals("아이디를 입력하세요.", message);
+
+        // userPw가 null, 또는 " "(빈 값)일때
+        assertThrows(BadRequestException.class, () -> {
+            Member member = getMember();
+            member.setUserPw(null);
+            service.join(member);
+
+            member.setUserPw("   ");
             service.join(member);
         });
     }
