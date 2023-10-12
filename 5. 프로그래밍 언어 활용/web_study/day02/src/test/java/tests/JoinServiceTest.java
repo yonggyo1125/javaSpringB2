@@ -2,6 +2,7 @@ package tests;
 
 import models.member.BadRequestException;
 import models.member.JoinService;
+import models.member.JoinValidator;
 import models.member.Member;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -26,13 +27,14 @@ public class JoinServiceTest {
 
     @BeforeEach
     void init() {
-        service = new JoinService();
+
+        service = new JoinService(new JoinValidator());
     }
 
 
     @Test
     @DisplayName("회원가입 성공시 예외가 발생하지 않음")
-    void joinSucess() {
+    void joinSuccess() {
         assertDoesNotThrow(() -> {
             service.join(getMember());
         });
@@ -41,14 +43,48 @@ public class JoinServiceTest {
     @Test
     @DisplayName("필수 항목(userId, userPw, confirmUserPw, userNm) 검증, 검증 실패시 BadRequestException 발생")
     void requiredFields() {
-        // userId가 null, 또는 " "(빈 값)일때
-        assertThrows(BadRequestException.class, () -> {
-            Member member = getMember();
-            member.setUserId(null);
-            service.join(member);
+        assertAll(
+                () -> {
+                    // userId가 null, 또는 " "(빈 값)일때
+                    Member member = getMember();
+                    member.setUserId(null);
+                    requiredFieldEach(member, "아이디");
+                    member.setUserId("   ");
+                    requiredFieldEach(member, "아이디");
+                },
+                () -> {
+                    // userPw가 null, 또는 " "(빈 값)일때
+                    Member member = getMember();
+                    member.setUserPw(null);
+                    requiredFieldEach(member, "비밀번호");
+                    member.setUserPw("  ");
+                    requiredFieldEach(member, "비밀번호");
+                },
+                () -> {
+                    // confirmUserPw null, 또는 " "(빈 값)일때
+                    Member member = getMember();
+                    member.setConfirmUserPw(null);
+                    requiredFieldEach(member, "비밀번호를 확인");
+                    member.setConfirmUserPw("   ");
+                    requiredFieldEach(member, "비밀번호를 확인");
+                },
+                () -> {
+                    // userNm가 null, 또는 " "(빈 값)일때
+                    Member member = getMember();
+                    member.setUserNm(null);
+                    requiredFieldEach(member, "회원명");
+                    member.setUserNm("   ");
+                    requiredFieldEach(member, "회원명");
+                }
+        );
 
-            member.setUserId("   ");
-            service.join(member);
+    }
+
+    private void requiredFieldEach(Member member, String word) {
+        BadRequestException thrown = assertThrows(BadRequestException.class, () -> {
+           service.join(member);
         });
+
+        assertTrue(thrown.getMessage().contains(word));
     }
 }
