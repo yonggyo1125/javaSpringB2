@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 
 public class BoardServlet extends HttpServlet {
     @Override
@@ -33,7 +34,10 @@ public class BoardServlet extends HttpServlet {
 
         String subject = req.getParameter("subject");
         String content = req.getParameter("content");
+        String hobby = req.getParameter("hobby");
+        System.out.printf("subject=%s, content=%s, hobby=%s%n", subject, content, hobby);
 
-        System.out.printf("subject=%s, content=%s%n", subject, content);
+        String[] hobbies = req.getParameterValues("hobby");
+        System.out.println(Arrays.toString(hobbies));
     }
 }
