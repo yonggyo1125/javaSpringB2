@@ -14,6 +14,9 @@ public class HelloServlet extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //System.out.println("안녕하세요.");
         System.out.println("doGet!!!");
+
+        String common1 = req.getServletContext().getInitParameter("common1");
+        System.out.println(common1);
     }
 
     @Override
