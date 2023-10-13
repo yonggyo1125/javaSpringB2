@@ -18,4 +18,15 @@ public class CommonFilter implements Filter {
 
         filterChain.doFilter(new CommonRequestWrapper(req), new CommonResponseWrapper(resp));
     }
+
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+        String key1 = filterConfig.getInitParameter("key1");
+        System.out.printf("key1=%s%n", key1);
+    }
+
+    @Override
+    public void destroy() {
+       System.out.println("common filter destroy()!!!");
+    }
 }
