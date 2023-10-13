@@ -28,6 +28,7 @@ public class BoardServlet extends HttpServlet {
         out.print("<input type='checkbox' name='hobby' value='취미5'>취미5<br>");
         out.print("<button type='submit'>작성하기</button>");
         out.print("</form>");
+        System.out.println("doGet!!");
     }
 
     @Override
