@@ -23,8 +23,16 @@ public class HelloServlet extends HttpServlet {
 
     @Override
     public void init(ServletConfig config) throws ServletException {
-        
+        String key1 = config.getInitParameter("key1");
+        String key2 = config.getInitParameter("key2");
+        System.out.printf("key1=%s, key2=%s%n", key1, key2);
+
+        String common1 = config.getInitParameter("common1");
+        String common2 = config.getInitParameter("common2");
+
+        System.out.printf("common1=%s, common2=%s%n", common1, common2);
     }
+
     /*
     @Override
     public void init() throws ServletException {
