@@ -1,7 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-
+<%@ page import="java.net.URLDecoder" %>
 <%
     String message = request.getParameter("message");
+    message = URLDecoder.decode(message, "UTF-8");
 %>
 <!DOCTYPE html>
 <html>
