@@ -1,5 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<jsp:useBean id="member" class="models.members.Member" scope="page" />
+<%@ page import="models.members.Member" %>
+
+<jsp:useBean id="member" class="models.members.Member" scope="application" />
 <%
     Member member1 = (Member)pageContext.getAttribute("member");
     Member member2 = (Member)request.getAttribute("member");
