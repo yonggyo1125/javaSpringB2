@@ -1,14 +1,17 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<fmt:setBundle basename="messages.commons" />
 <c:url var="action" value="/member/login" />
+<fmt:message var="login" key="LOGIN" />
+
 <%--
 <fmt:bundle basename="messages.commons">
     <fmt:message key="USER_ID" />
 </fmt:bundle>
 --%>
 
-<fmt:setBundle basename="messages.commons" />
+
 <form method="post" action="${action}">
     <dl>
         <dt>
@@ -26,7 +29,5 @@
             <input type="password" name="userPw">
         </dd>
     </dl>
-    <button type="submit">
-        <fmt:message key="LOGIN" />
-    </button>
+    <button type="submit">${login}</button>
 </form>
