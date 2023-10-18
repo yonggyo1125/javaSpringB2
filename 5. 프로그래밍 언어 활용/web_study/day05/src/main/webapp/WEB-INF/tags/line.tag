@@ -1,1 +1,2 @@
-<%@ tag body-content="" %>
+<%@ tag body-content="empty" trimDirectiveWhitespaces="true" %>
+---------------------------------
