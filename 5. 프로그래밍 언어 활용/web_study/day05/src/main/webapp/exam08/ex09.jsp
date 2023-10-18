@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<fmt:setLocale value="ko" />
 <fmt:setBundle basename="messages.commons" />
 <c:url var="action" value="/member/login" />
 <fmt:message var="login" key="LOGIN" />
