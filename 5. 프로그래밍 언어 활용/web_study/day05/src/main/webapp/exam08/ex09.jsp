@@ -11,6 +11,10 @@
 </fmt:bundle>
 --%>
 
+<fmt:message key="LOGIN_MSG">
+    <fmt:param>사용자01</fmt:param>
+    <fmt:param>user01</fmt:param>
+</fmt:message>
 
 <form method="post" action="${action}">
     <dl>
