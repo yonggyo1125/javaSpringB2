@@ -1,5 +1,7 @@
 <%@ tag body-content="scriptless" pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ attribute name="header" fragment="true" %>
+<%@ attribute name="footer" fragment="true" %>
 <c:url var="commonCss" value="/css/style.css" />
 <c:url var="commonJs" value="/js/common.js" />
 <!DOCTYPE html>
@@ -12,7 +14,7 @@
     </head>
     <body>
         <header>
-            <h1>헤더 영역...</h1>
+            <jsp:invoke fragment="header" />
         </header>
         <main>
             <jsp:doBody />
