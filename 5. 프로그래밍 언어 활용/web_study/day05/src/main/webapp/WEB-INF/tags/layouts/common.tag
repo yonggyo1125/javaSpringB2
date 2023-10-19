@@ -1,5 +1,6 @@
 <%@ tag body-content="scriptless" pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ attribute name="title" %>
 <%@ attribute name="header" fragment="true" %>
 <%@ attribute name="footer" fragment="true" %>
 <c:url var="commonCss" value="/css/style.css" />
@@ -8,7 +9,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>사이트 제목...</title>
+        <title>${title}</title>
         <link rel="stylesheet" type="text/css" href="${commonCss}">
         <script src="${commonJs}"></script>
     </head>
