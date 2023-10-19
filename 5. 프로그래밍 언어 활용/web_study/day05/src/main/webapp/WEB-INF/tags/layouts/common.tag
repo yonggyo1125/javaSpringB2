@@ -20,7 +20,7 @@
             <jsp:doBody />
         </main>
         <footer>
-            <h1>푸터 영역...</h1>
+            <jsp:invoke fragment="footer" />
         </footer>
     </body>
 </html>
