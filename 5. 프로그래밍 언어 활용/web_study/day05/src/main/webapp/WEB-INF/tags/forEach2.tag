@@ -5,4 +5,5 @@
 <%@ variable name-from-attribute="var" alias="item" variable-class="java.lang.String" scope="NESTED" %>
 <% for (Object item : items) { %>
     <c:set var="item" value="<%=item%>" />
+    <jsp:doBody />
 <% } %>
