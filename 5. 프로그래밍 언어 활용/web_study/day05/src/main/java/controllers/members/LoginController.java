@@ -16,10 +16,10 @@ public class LoginController extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String[] addCss = {"member/style.css", "file/style.css"};
+        String[] addCss = {"member/style", "file/style"};
         req.setAttribute("addCss", addCss);
 
-        List<String> addScript = Arrays.asList("file/fileupload.js", "member/form.js");
+        List<String> addScript = Arrays.asList("file/fileupload", "member/form");
         req.setAttribute("addScript", addScript);
 
         RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/templates/member/login.jsp");
