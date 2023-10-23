@@ -6,6 +6,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class Ex01 {
     public static void main(String[] args) {
+        // 스프링 컨테이너
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppCtx.class);
 
         Greet g1 = ctx.getBean("greet", Greet.class);
