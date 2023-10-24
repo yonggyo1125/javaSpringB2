@@ -9,10 +9,6 @@ public class JoinValidator implements Validator<Member>, RequiredValidator, Leng
 
     private MemberDao memberDao;
 
-    public void setMemberDao(MemberDao memberDao) {
-        this.memberDao = memberDao;
-    }
-
     @Override
     public void check(Member member) {
         String userId = member.getUserId();

@@ -1,12 +1,14 @@
 package exam02.config;
 
-import exam02.models.member.*;
+import exam02.models.member.InfoService;
+import exam02.models.member.JoinService;
+import exam02.models.member.JoinValidator;
+import exam02.models.member.MemberDao;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class AppCtx {
-    /*
+public class AppCtx2 {
     @Bean
     public MemberDao memberDao() {
         return new MemberDao();
@@ -14,21 +16,16 @@ public class AppCtx {
 
     @Bean
     public JoinValidator joinValidator() {
-        JoinValidator joinValidator = new JoinValidator();
-        joinValidator.setMemberDao(memberDao());
-
-        return joinValidator;
+        return new JoinValidator();
     }
-
 
     @Bean
     public JoinService joinService() {
-        return new JoinService(joinValidator(), memberDao());
+        return new JoinService();
     }
-
 
     @Bean
     public InfoService infoService() {
-        return new InfoService(memberDao());
-    }*/
+        return new InfoService();
+    }
 }
