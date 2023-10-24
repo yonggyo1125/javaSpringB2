@@ -4,9 +4,11 @@ import exam02.commons.BadRequestException;
 import exam02.commons.LengthValidator;
 import exam02.commons.RequiredValidator;
 import exam02.commons.Validator;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class JoinValidator implements Validator<Member>, RequiredValidator, LengthValidator {
 
+    @Autowired
     private MemberDao memberDao;
 
     @Override
