@@ -1,9 +1,11 @@
 package exam02.models.member;
 
 import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+@Repository
 public class MemberDao {
     private static Map<String, Member> members = new HashMap<>();
 
