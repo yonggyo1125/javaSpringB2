@@ -1,5 +1,6 @@
 package exam02.main;
 
+import exam02.models.member.InfoService;
 import exam02.models.member.JoinService;
 import exam02.models.member.Member;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -10,6 +11,7 @@ public class Ex01 {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppCtx.class);
 
         JoinService joinService = ctx.getBean("joinService", JoinService.class);
+        InfoService infoService = ctx.getBean("infoService", InfoService.class);
 
         Member member = Member.builder()
                                 .userId("user01")
@@ -20,6 +22,8 @@ public class Ex01 {
                                 .agree(true)
                                 .build();
         joinService.join(member);
+
+        infoService.print();
 
         ctx.close();
     }

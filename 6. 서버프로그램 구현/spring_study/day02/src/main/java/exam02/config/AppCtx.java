@@ -20,20 +20,12 @@ public class AppCtx {
         return joinValidator;
     }
 
-    @Bean
-    public LoginValidator loginValidator() {
-        return new LoginValidator(memberDao());
-    }
 
     @Bean
     public JoinService joinService() {
         return new JoinService(joinValidator(), memberDao());
     }
 
-    @Bean
-    public LoginService loginService() {
-        return new LoginService(loginValidator(), memberDao());
-    }
 
     @Bean
     public InfoService infoService() {
