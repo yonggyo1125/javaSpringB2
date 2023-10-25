@@ -1,23 +1,24 @@
 package exam04.models.member;
 
 import exam02.commons.Validator;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 @Service
+@RequiredArgsConstructor
 public class JoinService {
 
-    @Autowired
-    private Validator<Member> validator;
+    private final Validator<Member> validator;
 
-    @Autowired
-    private MemberDao memberDao3;
+    private final MemberDao memberDao;
+
 
     public void join(Member member) {
 
         validator.check(member);
 
-        memberDao3.register(member);
+        memberDao.register(member);
     }
 }

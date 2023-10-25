@@ -1,5 +1,6 @@
 package exam04.models.member;
 
+import exam04.config.ManualBean;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Repository;
 
@@ -9,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 @Repository
+@ManualBean
 public class MemberDao {
     private static Map<String, Member> members = new HashMap<>();
 
