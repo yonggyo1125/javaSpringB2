@@ -10,13 +10,13 @@ import org.springframework.context.annotation.Import;
 @Import(AppCtx2.class)
 public class AppCtx1 {
     @Bean
-    @Qualifier("mDao")
+    //@Qualifier("mDao")
     public MemberDao memberDao() {
         return new MemberDao();
     }
-
+    /*
     @Bean
     public MemberDao memberDao2() {
         return new MemberDao();
-    }
+    }*/
 }
