@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 @Repository
-@ManualBean
+//@ManualBean
 public class MemberDao {
     private static Map<String, Member> members = new HashMap<>();
 
