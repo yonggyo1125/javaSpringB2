@@ -1,5 +1,6 @@
 package exam03.config;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import exam03.models.member.*;
@@ -9,6 +10,7 @@ import org.springframework.context.annotation.Import;
 @Import(AppCtx2.class)
 public class AppCtx1 {
     @Bean
+    @Qualifier("mDao")
     public MemberDao memberDao() {
         return new MemberDao();
     }
