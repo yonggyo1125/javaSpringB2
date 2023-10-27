@@ -1,17 +1,20 @@
 package exam02.config;
 
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.core.annotation.Order;
 
+@Order(2)
 @Aspect
 public class ProxyCalculator {
 
-    @Pointcut("execution(* exam02.aopex..*(..))")
-    public void publicTarget() {}
 
-    @Around("publicTarget()")
+    //@Around("publicTarget()")
+    //@Around("execution(* exam02.aopex..*(..))")
+    @Around("CommonPointcut.publicTarget()")
     public Object process(ProceedingJoinPoint joinPoint) throws Throwable {
         long stime = System.nanoTime();
 
