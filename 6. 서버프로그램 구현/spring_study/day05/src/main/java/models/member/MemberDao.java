@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
@@ -38,8 +40,10 @@ public class MemberDao {
         String sql = "INSERT INTO MEMBER (USER_NO, USER_ID, USER_PW, EMAIL, USER_NM, MOBILE) " +
                 " VALUES (SEQ_MEMBER.nextval, ?, ?, ?, ?, ?)";
 
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+
         int affectedRows = jdbcTemplate.update(con -> {
-                PreparedStatement pstmt = con.prepareStatement(sql);
+                PreparedStatement pstmt = con.prepareStatement(sql, new String[] {"USER_NO"});
                 pstmt.setString(1, member.getUserId());
                 pstmt.setString(2, userPw);
                 pstmt.setString(3, member.getEmail());
@@ -47,7 +51,12 @@ public class MemberDao {
                 pstmt.setString(5, member.getMobile());
 
                 return pstmt;
-        });
+        }, keyHolder);
+
+        if (affectedRows > 0) {
+            long userNo = keyHolder.getKey().longValue();
+            member.setUserNo(userNo);
+        }
 
         return affectedRows > 0;
     }

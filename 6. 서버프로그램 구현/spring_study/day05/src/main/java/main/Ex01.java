@@ -12,10 +12,20 @@ public class Ex01 {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppCtx.class);
 
         MemberDao memberDao = ctx.getBean(MemberDao.class);
+        Member member = Member.builder()
+                .userId("user05")
+                .userPw("123456")
+                .userNm("사용자05")
+                .email("user05@test.org")
+                .build();
 
-        boolean result = memberDao.exists("user01");
+        boolean result = memberDao.register(member);
         System.out.println(result);
 
+        /*
+        boolean result = memberDao.exists("user01");
+        System.out.println(result);
+        */
         /*
         Member member = memberDao.get("user05");
         System.out.println(member);
