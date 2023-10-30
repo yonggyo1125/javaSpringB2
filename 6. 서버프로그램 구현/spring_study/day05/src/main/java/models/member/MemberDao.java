@@ -4,8 +4,11 @@ import lombok.RequiredArgsConstructor;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 @Repository
@@ -23,6 +26,8 @@ public class MemberDao {
                 " VALUES (SEQ_MEMBER.nextval, ?, ?, ?, ?, ?)";
         int affectedRows = jdbcTemplate.update(sql, member.getUserId(),
                 userPw, member.getEmail(), member.getUserNm(), member.getMobile());
+
+        return affectedRows > 0;
     }
 
     public Member get(String userId) {
@@ -36,7 +41,21 @@ public class MemberDao {
     }
 
     public List<Member> gets() {
+        String sql = "SELECT * FROM MEMBER ORDER BY REG_DT DESC";
 
-        return null;
+        List<Member> members = jdbcTemplate.query(sql, (rs, i) -> {
+                return Member.builder()
+                        .userNo(rs.getLong("USER_NO"))
+                        .userId(rs.getString("USER_ID"))
+                        .userPw(rs.getString("USER_PW"))
+                        .userNm(rs.getString("USER_NM"))
+                        .email(rs.getString("EMAIL"))
+                        .mobile(rs.getString("MOBILE"))
+                        .regDt(rs.getTimestamp("REG_DT").toLocalDateTime())
+                        .build();
+
+        });
+
+        return members;
     }
 }

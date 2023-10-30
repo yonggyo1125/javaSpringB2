@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 
 @Builder @Data
 public class Member {
+    private long userNo;
     private String userId;
     private String userPw;
     private String confirmUserPw;
