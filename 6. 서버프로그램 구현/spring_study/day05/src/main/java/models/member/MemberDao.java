@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,6 +19,7 @@ import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
+//@Transactional
 public class MemberDao {
 
     private final JdbcTemplate jdbcTemplate;
@@ -35,6 +37,7 @@ public class MemberDao {
         return affectedRows > 0;
     }
     */
+   // @Transactional
     public boolean register(Member member) {
         String userPw = BCrypt.hashpw(member.getUserPw(), BCrypt.gensalt(12));
         String sql = "INSERT INTO MEMBER (USER_NO, USER_ID, USER_PW, EMAIL, USER_NM, MOBILE) " +
