@@ -2,10 +2,12 @@ package config;
 
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 @Configuration
+@ComponentScan("models")
 public class AppCtx {
     @Bean(destroyMethod = "close")
     public DataSource dataSource() {
@@ -29,6 +31,7 @@ public class AppCtx {
 
     @Bean
     public JdbcTemplate jdbcTemplate() {
+
         return new JdbcTemplate(dataSource());
     }
 }
