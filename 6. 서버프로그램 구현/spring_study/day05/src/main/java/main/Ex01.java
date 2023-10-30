@@ -13,9 +13,17 @@ public class Ex01 {
 
         MemberDao memberDao = ctx.getBean(MemberDao.class);
 
+        boolean result = memberDao.exists("user01");
+        System.out.println(result);
+
+        /*
+        Member member = memberDao.get("user05");
+        System.out.println(member);
+        */
+        /*
         List<Member> members = memberDao.gets();
         members.stream().forEach(System.out::println);
-
+        */
         ctx.close();
     }
 }

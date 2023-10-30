@@ -4,9 +4,12 @@ import lombok.RequiredArgsConstructor;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -16,7 +19,7 @@ import java.util.List;
 public class MemberDao {
 
     private final JdbcTemplate jdbcTemplate;
-
+    /*
     public boolean register(Member member) {
 
         String userPw = BCrypt.hashpw(member.getUserPw(), BCrypt.gensalt(12));
@@ -29,17 +32,44 @@ public class MemberDao {
 
         return affectedRows > 0;
     }
+    */
+    public boolean register(Member member) {
+        String userPw = BCrypt.hashpw(member.getUserPw(), BCrypt.gensalt(12));
+        String sql = "INSERT INTO MEMBER (USER_NO, USER_ID, USER_PW, EMAIL, USER_NM, MOBILE) " +
+                " VALUES (SEQ_MEMBER.nextval, ?, ?, ?, ?, ?)";
+
+        int affectedRows = jdbcTemplate.update(con -> {
+                PreparedStatement pstmt = con.prepareStatement(sql);
+                pstmt.setString(1, member.getUserId());
+                pstmt.setString(2, userPw);
+                pstmt.setString(3, member.getEmail());
+                pstmt.setString(4, member.getUserNm());
+                pstmt.setString(5, member.getMobile());
+
+                return pstmt;
+        });
+
+        return affectedRows > 0;
+    }
+
 
     public Member get(String userId) {
-        String sql = "SELECT * FROM MEMBER WHERE USER_ID = ?";
-        Member member = jdbcTemplate.queryForObject(sql, this::mapper, userId);
+        try {
+            String sql = "SELECT * FROM MEMBER WHERE USER_ID = ?";
+            Member member = jdbcTemplate.queryForObject(sql, this::mapper, userId);
 
-        return member;
+            return member;
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public boolean exists(String userId) {
+        String sql = "SELECT COUNT(*) FROM MEMBER WHERE USER_ID = ?";
+        long cnt = jdbcTemplate.queryForObject(sql, long.class, userId);
 
-        return false;
+        return cnt > 0;
     }
 
     public List<Member> gets() {
