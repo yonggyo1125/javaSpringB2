@@ -31,8 +31,10 @@ public class MemberDao {
     }
 
     public Member get(String userId) {
+        String sql = "SELECT * FROM MEMBER WHERE USER_ID = ?";
+        Member member = jdbcTemplate.queryForObject(sql, this::mapper, userId);
 
-        return null;
+        return member;
     }
 
     public boolean exists(String userId) {
@@ -43,19 +45,20 @@ public class MemberDao {
     public List<Member> gets() {
         String sql = "SELECT * FROM MEMBER ORDER BY REG_DT DESC";
 
-        List<Member> members = jdbcTemplate.query(sql, (rs, i) -> {
-                return Member.builder()
-                        .userNo(rs.getLong("USER_NO"))
-                        .userId(rs.getString("USER_ID"))
-                        .userPw(rs.getString("USER_PW"))
-                        .userNm(rs.getString("USER_NM"))
-                        .email(rs.getString("EMAIL"))
-                        .mobile(rs.getString("MOBILE"))
-                        .regDt(rs.getTimestamp("REG_DT").toLocalDateTime())
-                        .build();
-
-        });
+        List<Member> members = jdbcTemplate.query(sql, this::mapper);
 
         return members;
+    }
+
+    private Member mapper(ResultSet rs, int i) throws SQLException {
+        return Member.builder()
+                .userNo(rs.getLong("USER_NO"))
+                .userId(rs.getString("USER_ID"))
+                .userPw(rs.getString("USER_PW"))
+                .userNm(rs.getString("USER_NM"))
+                .email(rs.getString("EMAIL"))
+                .mobile(rs.getString("MOBILE"))
+                .regDt(rs.getTimestamp("REG_DT").toLocalDateTime())
+                .build();
     }
 }
