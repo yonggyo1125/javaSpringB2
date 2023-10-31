@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script>
+            window.addEventListener("DOMContentLoaded", function() {
+                const link = document.getElementById("link");
+                link.addEventListener("click", function(e) {
+                    e.preventDefault();
+                    console.log("기본 동작이 취소됨");
+                });
+                const div = document.getElementById("div");
+                div.addEventListener("click", function(e) {
+                    console.log("this", this);
+                    console.log("currentTarget", e.currentTarget);
+                    console.log("target", e.target);
+                });
+            });
+        </script>
+       <a href="https://www.naver.com" id="link">네이버</a><br>
+       <div id="div">
+            <span>클릭</span>
+       </div>
+    </body>
+</html>
