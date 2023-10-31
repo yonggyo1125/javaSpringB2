@@ -2,6 +2,7 @@ package controllers.member;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import models.member.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,5 +30,22 @@ public class MemberController {
         model.addAttribute("userPw", "비밀번호");
 
         return "member/login"; // login.html
+    }
+
+    @GetMapping("/member/info")
+    public String info(Model model) {
+
+        Member member = Member.builder()
+                .userNo(1L)
+                .userId("<h1>user01</h1>")
+                .userPw("123456")
+                .userNm("사용자01")
+                .email("user01@test.org")
+                .mobile("010-0000-0000")
+                .build();
+
+        model.addAttribute("member", member);
+
+        return "member/info";
     }
 }
