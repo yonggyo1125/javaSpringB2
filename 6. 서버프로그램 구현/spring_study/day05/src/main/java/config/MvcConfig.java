@@ -16,6 +16,7 @@ public class MvcConfig implements WebMvcConfigurer {
 
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
+
         registry.jsp("/WEB-INF/templates/", ".jsp");
     }
 }
