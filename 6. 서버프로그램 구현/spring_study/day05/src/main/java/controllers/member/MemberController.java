@@ -14,18 +14,13 @@ import java.util.stream.IntStream;
 
 @Controller
 public class MemberController {
-    /*
-    @Autowired
-    private HttpServletRequest request;
 
-    @GetMapping("/member/login")
-    public String login(RequestLogin form, HttpServletResponse response) {
-        System.out.println(form);
-        System.out.println(response);
-        System.out.println(request.getParameter("userId"));
-        return "member/login";
+    @GetMapping("/member/join")
+    public String join() {
+
+        return "member/join";
     }
-     */
+
 
     @GetMapping("/member/login")
     public String login(Model model) {
