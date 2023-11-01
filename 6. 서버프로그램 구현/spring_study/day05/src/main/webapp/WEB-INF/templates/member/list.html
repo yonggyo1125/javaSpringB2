@@ -30,13 +30,20 @@
                     <td th:if="${status.even}">짝수</td>
                     <td th:unless="${status.even}">홀수</td> -->
                     <!--<td th:if="${!status.even}">홀수</td>-->
-                    <td th:text="*{userNo}"></td>
+                    <td th:text="*{#numbers.formatInteger(userNo, 3, 'COMMA')}"></td>
                     <td th:text="*{userId}"></td>
                     <td th:text="*{userNm}"></td>
                     <td th:text="*{email}"></td>
-                    <td th:text="*{regDt}"></td>
+                    <td th:text="*{#temporals.format(regDt, 'yyyy.MM.dd')}"></td>
                 </tr>
             </tbody>
         </table>
+
+        <th:block th:text="${@utils.toUpper('abc')}"></th:block>
+
+        <div th:each="num : ${#numbers.sequence(1, 10, 2)}">
+            <div th:text="${num}"></div>
+        </div>
+
     </body>
 </html>

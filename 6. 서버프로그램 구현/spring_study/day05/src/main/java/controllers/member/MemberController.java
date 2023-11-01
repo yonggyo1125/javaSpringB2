@@ -64,7 +64,7 @@ public class MemberController {
 
     private Member addMember(int i) {
         return Member.builder()
-                .userNo(i)
+                .userNo(i * 10000)
                 .userId("user" + i)
                 .userPw("123456")
                 .userNm("사용자" + i)
