@@ -11,15 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MemberController {
 
     @GetMapping("/join") // /member/join
-    public String join() {
-
+    public String join(Model model) {
+        RequestJoin requestJoin = new RequestJoin();
+        model.addAttribute("requestJoin", requestJoin);
         return "member/join";
     }
 
     @PostMapping("/join")
     public String joinPs(RequestJoin join, Model model) {
-
-        model.addAttribute("requestJoin", join);
 
         return "member/join";
 
