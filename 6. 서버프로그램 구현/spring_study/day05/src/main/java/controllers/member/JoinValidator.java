@@ -22,7 +22,7 @@ public class JoinValidator implements Validator {
         String email = form.getEmail();
 
         if (userId == null || userId.isBlank()) {
-            errors.rejectValue("userId", "Required", "아이디를 입력하세요.");
+            errors.rejectValue("userId", "Required");
         }
 
         if (userPw == null || userPw.isBlank()) {
