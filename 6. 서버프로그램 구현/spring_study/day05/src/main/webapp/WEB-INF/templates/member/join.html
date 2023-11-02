@@ -9,41 +9,41 @@
             <dl>
                 <dt>아이디</dt>
                 <dd>
-                    <input type="text" name="userId">
+                    <input type="text" name="userId" th:value="${requestJoin.userId}">
                 </dd>
             </dl>
             <dl>
                 <dt>비밀번호</dt>
                 <dd>
-                    <input type="password" name="userPw">
+                    <input type="password" name="userPw" th:value="${requestJoin.userPw}">
                 </dd>
             </dl>
             <dl>
                 <dt>비밀번호확인</dt>
                 <dd>
-                    <input type="password" name="confirmUserPw">
+                    <input type="password" name="confirmUserPw" th:value="${requestJoin.confirmUserPw}">
                 </dd>
             </dl>
             <dl>
                 <dt>회원명</dt>
                 <dd>
-                    <input type="text" name="userNm">
+                    <input type="text" name="userNm" th:value="${requestJoin.userNm}">
                 </dd>
             </dl>
             <dl>
                 <dt>이메일</dt>
                 <dd>
-                    <input type="text" name="email">
+                    <input type="text" name="email" th:value="${requestJoin.email}">
                 </dd>
             </dl>
             <dl>
                 <dt>휴대전화번호</dt>
                 <dd>
-                    <input type="text" name="mobile">
+                    <input type="text" name="mobile" th:value="${requestJoin.mobile}">
                 </dd>
             </dl>
             <div>
-                <input type="checkbox" name="agree" value="true" id="agree">
+                <input type="checkbox" name="agree" value="true" id="agree" th:checked="${requestJoin.agree}">
                 <label for="agree">회원가입 약관에 동의합니다.</label>
             </div>
             <button type="submit">가입하기</button>
