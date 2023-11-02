@@ -3,6 +3,7 @@ package controllers.member;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -11,14 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MemberController {
 
     @GetMapping("/join") // /member/join
-    public String join(Model model) {
-        RequestJoin requestJoin = new RequestJoin();
-        model.addAttribute("requestJoin", requestJoin);
+    public String join(@ModelAttribute RequestJoin join) {
+
         return "member/join";
     }
 
     @PostMapping("/join")
     public String joinPs(RequestJoin join, Model model) {
+
 
         return "member/join";
 
