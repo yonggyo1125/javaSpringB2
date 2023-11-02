@@ -15,10 +15,6 @@ public class JoinValidator implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         RequestJoin form = (RequestJoin)target;
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userId", "Required");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userPw", "Required");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "confirmUserPw", "Required");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userNm", "Required");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "Required");
+
     }
 }
