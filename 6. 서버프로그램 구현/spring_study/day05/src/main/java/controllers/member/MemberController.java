@@ -24,6 +24,7 @@ public class MemberController {
     @PostMapping("/join")
     public String joinPs(RequestJoin join, Errors errors) {
 
+
         joinValidator.validate(join, errors);
 
         if (errors.hasErrors()) {
