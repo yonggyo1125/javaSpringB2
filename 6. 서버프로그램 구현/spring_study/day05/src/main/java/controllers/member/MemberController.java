@@ -26,7 +26,6 @@ public class MemberController {
 
     @PostMapping("/join")
     public String joinPs(@Valid RequestJoin join, Errors errors) {
-        System.out.println("데이터 확인 : " + join);
 
         joinValidator.validate(join, errors);
 
@@ -42,13 +41,13 @@ public class MemberController {
     }
 
     @GetMapping("/login")  // /member/login
-    public String login() {
+    public String login(@ModelAttribute RequestLogin form) {
 
         return "member/login";
     }
 
     @PostMapping("/login")
-    public String loginPs() {
+    public String loginPs(@Valid RequestLogin form, Errors errors) {
 
         return "member/login";
     }
