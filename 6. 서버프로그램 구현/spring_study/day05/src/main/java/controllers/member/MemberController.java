@@ -49,7 +49,14 @@ public class MemberController {
     @PostMapping("/login")
     public String loginPs(@Valid RequestLogin form, Errors errors) {
 
-        return "member/login";
+        if (errors.hasErrors()) {
+            return "member/login";
+        }
+
+        // 유효성 검사 성공 -> 로그인 처리
+
+        return "redirect:/";
+
     }
 
     /*
