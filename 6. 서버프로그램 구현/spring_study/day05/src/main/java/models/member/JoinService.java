@@ -2,6 +2,7 @@ package models.member;
 
 import controllers.member.RequestJoin;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,7 +17,9 @@ public class JoinService {
 
         validator.check(form);
 
-        //memberDao.register(member);
+        Member member = new ModelMapper().map(form, Member.class);
+
+        memberDao.register(member);
     }
 
 
