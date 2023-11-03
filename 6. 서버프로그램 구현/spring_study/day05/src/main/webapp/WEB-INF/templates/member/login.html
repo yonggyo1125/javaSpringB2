@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <title>로그인</title>
-    </head>
-    <body>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layouts/main}">
+    <main layout:fragment="content">
         <form method="post" th:action="@{/member/login}" th:object="${requestLogin}">
+            <div th:each="err : ${#fields.globalErrors()}" th:text="${err}"></div>
+
             <dl>
                 <dt th:text="#{아이디}">아이디</dt>
                 <dd>
@@ -31,5 +31,5 @@
                 <a th:href="@{/member/join?key1={key1}(key1=${userId}, key2=value2)}" th:text="#{회원가입}"></a>
             </div>
         </form>
-    </body>
+    </main>
 </html>
