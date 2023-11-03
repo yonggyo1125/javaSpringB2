@@ -1,5 +1,6 @@
 package models.member;
 
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -8,4 +9,5 @@ import org.springframework.stereotype.Service;
 public class LoginService {
 
    private final MemberDao memberDao;
+   private final HttpSession session;
 }
