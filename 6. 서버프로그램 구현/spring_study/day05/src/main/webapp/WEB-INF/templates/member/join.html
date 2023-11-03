@@ -49,6 +49,7 @@
                     <div th:each="err : ${#fields.errors('mobile')}" th:text="${err}"></div>
                 </dd>
             </dl>
+
             <div>
                 <input type="checkbox" name="agree" value="true" id="agree" th:field="*{agree}">
                 <label for="agree">회원가입 약관에 동의합니다.</label>
