@@ -54,6 +54,12 @@ public class MemberController {
     }
 
     /*
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        binder.setValidator(joinValidator);
+    }
+    */
+    /*
     @GetMapping("/member/join")
     public String join(Model model) {
         String[] addCss = {"member/test1", "member/test2"};

@@ -23,6 +23,14 @@ public class MvcConfig implements WebMvcConfigurer {
     @Autowired
     private ApplicationContext ctx;
 
+    //@Autowired
+    //private JoinValidator joinValidator;
+    /*
+    @Override
+    public Validator getValidator() {
+        return joinValidator;
+    }
+    */
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/")
