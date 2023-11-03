@@ -4,14 +4,15 @@ import commons.BadRequestException;
 import commons.LengthValidator;
 import commons.RequiredValidator;
 import commons.Validator;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
+@Component("joinValidator2")
+@RequiredArgsConstructor
 public class JoinValidator implements Validator<Member>, RequiredValidator, LengthValidator {
 
-    private MemberDao memberDao;
+    private final MemberDao memberDao;
 
-    public void setMemberDao(MemberDao memberDao) {
-        this.memberDao = memberDao;
-    }
 
     @Override
     public void check(Member member) {

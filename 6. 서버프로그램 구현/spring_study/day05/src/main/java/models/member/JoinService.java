@@ -1,19 +1,18 @@
 package models.member;
 
-import commons.BadRequestException;
-import commons.Validator;
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.Objects;
 
+@Service
+@RequiredArgsConstructor
 public class JoinService {
-    private Validator validator;
-    private MemberDao memberDao;
 
-    public JoinService(Validator validator, MemberDao memberDao) {
-        this.validator = validator;
-        this.memberDao = memberDao;
-    }
+    private final JoinValidator validator;
+    private final MemberDao memberDao;
+
 
     public void join(Member member) {
 
