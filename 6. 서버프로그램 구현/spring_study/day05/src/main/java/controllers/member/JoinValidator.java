@@ -9,6 +9,7 @@ import org.springframework.validation.Validator;
 public class JoinValidator implements Validator, MobileValidator {
     @Override
     public boolean supports(Class<?> clazz) {
+
         return clazz.isAssignableFrom(RequestJoin.class);
     }
 
