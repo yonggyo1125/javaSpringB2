@@ -1,6 +1,5 @@
 package controllers.member;
 
-import commons.BadRequestException;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -75,10 +74,17 @@ public class MemberController {
         return "redirect:/member/login";
     }
 
-    @ExceptionHandler(BadRequestException.class)
-    public String errorHandler() {
+    // MemberController 한정 예외 페이지 처리
+    /*
+    @ExceptionHandler(Exception.class)
+    public String errorHandler(Exception e, Model model) {
+        e.printStackTrace();
+
+        model.addAttribute("message", e.getMessage());
+
         return "error/common";
     }
+    */
 
     /*
     @InitBinder
