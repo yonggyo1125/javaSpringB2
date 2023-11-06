@@ -36,6 +36,14 @@ public class MvcConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(memberOnlyInterceptor())
                 .addPathPatterns("/mypage/**");
+
+        registry.addInterceptor(commonInterceptor())
+                .addPathPatterns(("/**"));
+    }
+
+    @Bean
+    public CommonInterceptor commonInterceptor() {
+        return new CommonInterceptor();
     }
 
     @Bean
