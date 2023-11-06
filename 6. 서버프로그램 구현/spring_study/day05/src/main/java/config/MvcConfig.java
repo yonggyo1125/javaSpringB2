@@ -31,6 +31,18 @@ public class MvcConfig implements WebMvcConfigurer {
         return joinValidator;
     }
     */
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(memberOnlyInterceptor())
+                .addPathPatterns("/mypage/**");
+    }
+
+    @Bean
+    public MemberOnlyInterceptor memberOnlyInterceptor() {
+        return new MemberOnlyInterceptor();
+    }
+
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/")
