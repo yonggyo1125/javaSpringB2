@@ -15,5 +15,5 @@ public class RequestLogin {
         @NotBlank
         private String userPw;
 
-        private Boolean saveId;
+        private boolean saveId;
 }

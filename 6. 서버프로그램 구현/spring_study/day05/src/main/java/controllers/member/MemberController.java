@@ -44,7 +44,8 @@ public class MemberController {
     @GetMapping("/login")  // /member/login
     public String login(@ModelAttribute RequestLogin form, @CookieValue(name="saveId", required = false) String userId) {
        if (userId != null) {
-
+            form.setUserId(userId);
+            form.setSaveId(true);
        }
 
         return "member/login";
