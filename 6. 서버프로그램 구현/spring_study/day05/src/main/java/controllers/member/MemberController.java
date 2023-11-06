@@ -1,5 +1,6 @@
 package controllers.member;
 
+import commons.BadRequestException;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -28,12 +29,13 @@ public class MemberController {
     @PostMapping("/join")
     public String joinPs(@Valid RequestJoin join, Errors errors) {
 
-        joinValidator.validate(join, errors);
-
+        //joinValidator.validate(join, errors);
+        /*
         if (errors.hasErrors()) {
             // 검증 실패시 유입
             return "member/join";
         }
+        */
 
         // 검증 성공 -> 회원가입 처리
         joinService.join(join);
@@ -71,6 +73,11 @@ public class MemberController {
         session.invalidate();
 
         return "redirect:/member/login";
+    }
+
+    @ExceptionHandler(BadRequestException.class)
+    public String errorHandler() {
+        return "error/common";
     }
 
     /*
