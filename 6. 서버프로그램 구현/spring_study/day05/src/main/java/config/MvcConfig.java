@@ -25,6 +25,9 @@ public class MvcConfig implements WebMvcConfigurer {
     @Value("${enviroment}")
     private String env;
 
+    @Value("${file.upload.path}")
+    private String fileUploadPath;
+
     @Autowired
     private ApplicationContext ctx;
 
@@ -77,7 +80,7 @@ public class MvcConfig implements WebMvcConfigurer {
                 .addResourceLocations("classpath:/static/");
 
         registry.addResourceHandler("/uploads/**")
-                .addResourceLocations("file:///C:/uploads/");
+                .addResourceLocations("file:///" + fileUploadPath);
     }
 
     @Bean

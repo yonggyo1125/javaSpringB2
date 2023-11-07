@@ -29,6 +29,9 @@ public class DbConfig {
 
         String username = env.equals("prod") ? usernameProd : usernameDev;
         String password = env.equals("prod") ? passwordProd : passwordDev;
+        System.out.println(env);
+        System.out.println(username);
+        System.out.println(password);
 
         DataSource ds = new DataSource();
         ds.setDriverClassName("oracle.jdbc.driver.OracleDriver");
