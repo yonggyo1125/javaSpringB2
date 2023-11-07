@@ -17,7 +17,7 @@ import org.thymeleaf.spring6.view.ThymeleafViewResolver;
 
 @Configuration
 @EnableWebMvc
-@Import(DbConfig2.class)
+@Import(DbConfig.class)
 public class MvcConfig implements WebMvcConfigurer {
 
     @Autowired
