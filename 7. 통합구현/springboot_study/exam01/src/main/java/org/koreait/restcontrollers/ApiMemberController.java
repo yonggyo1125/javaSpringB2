@@ -3,6 +3,8 @@ package org.koreait.restcontrollers;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.koreait.commons.BadRequestException;
+import org.koreait.commons.CommonException;
 import org.koreait.commons.JSONData;
 import org.koreait.entities.Member;
 import org.koreait.repositories.MemberRepository;
@@ -30,7 +32,8 @@ public class ApiMemberController {
 
         boolean isError = true;
         if (isError) {
-            throw new RuntimeException("에러 발생!!!");
+            throw new BadRequestException("에러 발생!!!");
+            //throw new RuntimeException("에러 발생!!"); // 500
         }
 
         return ResponseEntity.status(data.getStatus()).body(data);
@@ -75,14 +78,5 @@ public class ApiMemberController {
         return ResponseEntity.ok().build();
     }
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<JSONData<Object>> errorHandler(Exception e) {
 
-       JSONData<Object> data = new JSONData<>();
-       data.setSuccess(false);
-       data.setStatus(HttpStatus.BAD_REQUEST);
-       data.setMessage(e.getMessage());
-
-        return ResponseEntity.status(data.getStatus()).body(data);
-    }
 }
