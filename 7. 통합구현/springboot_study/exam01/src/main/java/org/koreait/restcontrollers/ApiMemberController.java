@@ -9,6 +9,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @RestController
@@ -46,11 +47,18 @@ public class ApiMemberController {
     public void login(@RequestBody @Valid RequestLogin form, Errors errors) {
 
         if (errors.hasErrors()) {
-            errors.getAllErrors().stream()
+            String message = errors.getAllErrors().stream()
                     .map(o -> o.getDefaultMessage())
-                    .forEach(System.out::println);
+                    .collect(Collectors.joining(","));
+
+            throw new RuntimeException(message);
         }
 
         log.info(form.toString());
+    }
+
+    @ExceptionHandler(Exception.class)
+    public String errorHandler(Exception e) {
+        return e.getMessage();
     }
 }
