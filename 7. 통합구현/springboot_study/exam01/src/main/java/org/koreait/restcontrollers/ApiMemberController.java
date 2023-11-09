@@ -3,8 +3,11 @@ package org.koreait.restcontrollers;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.koreait.commons.JSONData;
 import org.koreait.entities.Member;
 import org.koreait.repositories.MemberRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,10 +23,12 @@ public class ApiMemberController {
     private final MemberRepository repository;
 
     @GetMapping("/{userId}")
-    public Member info(@PathVariable String userId) {
+    public ResponseEntity<JSONData<Member>> info(@PathVariable String userId) {
         Member member = repository.findByUserId(userId);
 
-        return member;
+        JSONData<Member> data = new JSONData<>(member);
+
+        return ResponseEntity.status(data.getStatus()).body(data);
     }
 
     @GetMapping("/list")
@@ -44,7 +49,7 @@ public class ApiMemberController {
     }
 
     @PostMapping("/login")
-    public void login(@RequestBody @Valid RequestLogin form, Errors errors) {
+    public ResponseEntity<Object> login(@RequestBody @Valid RequestLogin form, Errors errors) {
 
         if (errors.hasErrors()) {
             String message = errors.getAllErrors().stream()
@@ -55,10 +60,23 @@ public class ApiMemberController {
         }
 
         log.info(form.toString());
+        /*
+        return ResponseEntity
+                    .status(HttpStatus.CREATED)
+                    .header("TestHeader", "Test")
+                    .build();
+
+         */
+        return ResponseEntity.ok().build();
     }
 
     @ExceptionHandler(Exception.class)
-    public String errorHandler(Exception e) {
-        return e.getMessage();
+    public ResponseEntity<String> errorHandler(Exception e) {
+
+        ResponseEntity<String> response = ResponseEntity
+                .badRequest()
+                .body(e.getMessage());
+
+        return response;
     }
 }
